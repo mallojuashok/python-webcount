@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Python'){
             steps{
-                sh """ sudo apt install python3-pip -y 
+                sh """
                        python -m pip install --upgrade pip
                        pip install -r requirements.txt
                        pip install pytest pytest-azurepipelines
