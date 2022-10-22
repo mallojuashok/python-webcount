@@ -7,14 +7,14 @@ steps:
     sudo apt install python3-pip -y 
   displayName: 'Install Python'
 - script: |
-    python -m pip install --upgrade pip
+    python -m pip install --upgrade pip setuptools wheel
   displayName: 'Install dependencies'
 - script: |
     pip install -r requirements.txt
-  displayName: 'Install dependencies'
+  displayName: 'Install requirements'
 - script: |
     pip install tox
-  displayName: 'pytest'
+  displayName: 'install tox'
 - script: |
     tox -e py
   displayName: 'run tox'
