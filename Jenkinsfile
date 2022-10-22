@@ -23,7 +23,7 @@ pipeline {
             steps {
                 rtMavenRun (
                     tool: 'PYTHON_DEFAULT', // Tool name from Jenkins configuration
-                    pom: 'pom.xml',
+                    pom: 'py39.xml',
                     goals: 'tox',
                     deployerId: "PYTHON_DEPLOYER"
                 )
