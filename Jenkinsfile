@@ -22,7 +22,7 @@ pipeline {
         stage ('Exec Python') {
             steps {
                 rtMavenRun (
-                    tool: 'PYTHON_DEFAULT', // Tool name from Jenkins configuration
+                    tool: 'MVN_DFT', // Tool name from Jenkins configuration
                     pom: 'py39.xml',
                     goals: 'tox',
                     deployerId: "PYTHON_DEPLOYER"
