@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'PYHON' }
     parameters {
-        string(name: 'MAVEN_GOAL', defaultValue: 'tox', description: 'maven goal')
+        string(name: 'MAVEN_GOAL', defaultValue: 'clean install', description: 'maven goal')
 
     }
     stages{
@@ -27,8 +27,8 @@ pipeline {
             steps {
                 rtMavenRun (
                     tool: 'MVN_DFT', // Tool name from Jenkins configuration
-                    pom: 'py39.xml',
-                    goals: 'tox',
+                    pom: 'pom.xml',
+                    goals: 'clean install',
                     deployerId: "PYTHON_DEPLOYER"
                 )
             }
