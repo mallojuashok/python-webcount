@@ -8,12 +8,12 @@ pipeline{
         }
         stage('Python'){
             steps{
-                """ sudo apt install python3-pip -y 
-                    python -m pip install --upgrade pip
-                    pip install -r requirements.txt
-                    pip install pytest pytest-azurepipelines
-                    pip install tox
-                    tox """
+                sh """ sudo apt install python3-pip -y 
+                       python -m pip install --upgrade pip
+                       pip install -r requirements.txt
+                       pip install pytest pytest-azurepipelines
+                       pip install tox
+                       tox """
             }
         }
         stage('archive results'){
