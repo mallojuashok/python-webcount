@@ -8,7 +8,7 @@ pipeline{
         }
         stage('GIT'){
             steps{
-                git branch 'master' , url ' https://github.com/mallojuashok/python-webcount.git'
+                git branch: 'master' , url: ' https://github.com/mallojuashok/python-webcount.git'
             }
         }
         stage('PIP3'){
@@ -33,7 +33,7 @@ pipeline{
         }
         stage('artifacts'){
             steps{
-                archiveArtifacts artifacts '**/webcount-0.1.zip'
+                archiveArtifacts artifacts: '**/webcount-0.1.zip'
             }
         }
 
