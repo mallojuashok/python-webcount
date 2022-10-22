@@ -1,20 +1,25 @@
 pipeline{
     agent { label 'PYHON'}
     stages{
-        stage('GIT'){
+        stage('VCS'){
             steps{
-                git branch: 'master' , url: ' https://github.com/mallojuashok/python-webcount.git'
+                git branch:'master' , url:'https://github.com/mallojuashok/python-webcount.git'
             }
         }
         stage('Python'){
             steps{
-                sh """
-                       python -m pip install --upgrade pip
-                       pip install -r requirements.txt
-                       pip install pytest pytest-azurepipelines
-                       pip install tox
-                       tox """
-            }
+                sh 'pip3 install -r requirements.txt'
+                }
+        }
+        stage('Tox Install'){
+            steps{
+                sh 'sudo apt install tox'
+                }
+        }
+        stage('Run Tax'){
+            steps{
+                sh 'tox'
+                }
         }
         stage('archive results'){
             steps{
