@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'PYHON' }
+    parameters {
+        string(name: 'MAVEN_GOAL', defaultValue: 'tox', description: 'maven goal')
+
+    }
     stages{
         stage('VCS'){
             steps{
