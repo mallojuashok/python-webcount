@@ -4,9 +4,17 @@ trigger:
 pool: Mypool
 steps:
 - script: |
+    sudo apt install python3-pip -y 
+  displayName: 'Install Python'
+- script: |
+    python -m pip install --upgrade pip
+  displayName: 'Install dependencies'
+- script: |
     pip install -r requirements.txt
   displayName: 'Install dependencies'
-
 - script: |
-    tox
+    pip install tox
   displayName: 'pytest'
+- script: |
+    tox -e py
+  displayName: 'run tox'
