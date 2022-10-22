@@ -1,29 +1,19 @@
 pipeline{
     agent { label 'PYHON'}
     stages{
-        stage('Python'){
-            steps{
-                sh 'sudo apt install python3-pip -y'
-            }
-        }
         stage('GIT'){
             steps{
                 git branch: 'master' , url: ' https://github.com/mallojuashok/python-webcount.git'
             }
         }
-        stage('PIP3'){
+        stage('Python'){
             steps{
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
-        stage('TOX'){
-            steps{
-                sh 'sudo apt install tox'
-            }
-        }
-        stage('Run Tox'){
-            steps{
-                sh 'tox'
+                """ sudo apt install python3-pip -y 
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
+                    pip install pytest pytest-azurepipelines
+                    pip install tox
+                    tox """
             }
         }
         stage('archive results'){
