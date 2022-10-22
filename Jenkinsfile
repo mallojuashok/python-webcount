@@ -23,7 +23,7 @@ pipeline{
         }
         stage('archive results'){
             steps{
-                junit '**/junit-py39.xml/*.xml'
+                junit '**/junit-py39.xml'
             }
         }
         stage('artifacts'){
