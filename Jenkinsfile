@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Tox Install'){
             steps{
-                sh 'sudo apt install tox'
+                sh 'sudo apt install tox -y'
                 }
         }
         stage('Run Tax'){
