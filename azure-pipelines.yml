@@ -14,8 +14,11 @@ steps:
     pip install pytest pytest-azurepipelines
   displayName: 'pytest'
 - script: |
-    pip install tox
-  displayName: 'install tox'
+    pip install pytest-cov
+  displayName: 'install pytest'
 - script: |
-    tox -e py
-  displayName: 'run tox'
+    sudo apt install python-pytest
+  displayName: 'install pytest'
+- script: |
+    pytest test_test1.py
+  displayName: 'pytest'
