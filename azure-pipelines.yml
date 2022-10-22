@@ -1,0 +1,12 @@
+---
+trigger:
+- master
+pool: Mypool
+steps:
+- script: |
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    tox
+  displayName: 'pytest'
